@@ -1,0 +1,17 @@
+version: '3'
+services:
+  mobile_films_backend:
+    image: mobile_films_backend
+    environment:
+      - TZ="Europe/Moscow"
+    networks:
+      - webswarm
+    labels:
+      - "traefik.enable=true"
+      - "traefik.http.routers.mobile_films_backend.entrypoints=http"
+      - "traefik.http.routers.mobile_films_backend.service=mobile_films_backend"
+      - "traefik.http.services.mobile_films_backend.loadbalancer.server.port=8080"
+      - "traefik.http.routers.mobile_films_backend.rule=PathPrefix(`/`)"
+networks:
+  webswarm:
+    external: true

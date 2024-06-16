@@ -1,0 +1,5 @@
+### Получение всех фильмов
+GET http://localhost:8080/api/reviews
+
+### Получение всех коммментариев к обзору
+GET http://localhost:8080/api/reviews/comments?review_id=1
